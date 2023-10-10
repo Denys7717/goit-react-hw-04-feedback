@@ -1,5 +1,5 @@
 //DEN
-import { FeedBack } from 'components/FeedBack/FeedBack';
+import { FeedBack } from './FeedBack/FeedBack';
 
 export const App = () => {
   return (
