@@ -1,0 +1,17 @@
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn::first-letter {
+  text-transform: uppercase;
+}
+
+.statisticTitle {
+  margin-bottom: 16px;
+}
