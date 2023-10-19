@@ -9,12 +9,20 @@ export const FeedBack = () => {
   const [neutral, SetNeutral] = useState(0);
   const [bad, SetBad] = useState(0);
 
-  const option = ['good', 'neutral', 'bad'];
-
   const handleClick = ({ target: { name } }) => {
-    if (name === 'good') SetGood(prev => prev + 1);
-    else if (name === 'neutral') SetNeutral(prev => prev + 1);
-    else if (name === 'bad') SetBad(prev => prev + 1);
+    switch (name) {
+      case 'good':
+        SetGood(prev => prev + 1);
+        break;
+      case 'neutral':
+        SetNeutral(prev => prev + 1);
+        break;
+      case 'bad':
+        SetBad(prev => prev + 1);
+        break;
+      default:
+        break;
+    }
   };
 
   const countTotalFeedback = () => {
@@ -31,7 +39,10 @@ export const FeedBack = () => {
   return (
     <>
       <Section title={'Please leave feedback'}>
-        <FeedbackOptions onLeaveFeedback={handleClick} options={option} />
+        <FeedbackOptions
+          onLeaveFeedback={handleClick}
+          options={Object.keys({ good, neutral, bad })}
+        />
         {countTotalFeedback() ? (
           <Statistics
             good={good}
